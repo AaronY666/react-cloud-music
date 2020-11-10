@@ -1,10 +1,33 @@
 import React from "react";
 import { renderRoutes } from "react-router-config";
+import { NavLink } from "react-router-dom";
+import { Top, TabItem, Tab } from "./style";
 function Home(props) {
   const { route } = props;
   return (
     <div>
-      <div className="home">home</div>
+      <Top>
+        <span className="iconfont menu">&#xe607;</span>
+        <span className="title">WebApp</span>
+        <span className="iconfont search">&#xe607;</span>
+      </Top>
+      <Tab>
+        <NavLink to="/recommend" activeClassName="selected">
+          <TabItem>
+            <span> 推荐 </span>
+          </TabItem>
+        </NavLink>
+        <NavLink to="/singers" activeClassName="selected">
+          <TabItem>
+            <span> 歌手 </span>
+          </TabItem>
+        </NavLink>
+        <NavLink to="/rank" activeClassName="selected">
+          <TabItem>
+            <span> 排行榜 </span>
+          </TabItem>
+        </NavLink>
+      </Tab>
       {renderRoutes(route.routes)}
     </div>
   );
